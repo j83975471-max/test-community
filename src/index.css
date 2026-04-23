@@ -1,70 +1,66 @@
 @import "tailwindcss";
 
 @theme {
-  --color-primary: #FF5C00;
-  --color-primary-light: #FF8A00;
-  --color-accent: #FFD200;
-  --color-bg-light: #FFF5F0;
-  --color-ink: #2D1B14;
+  --color-onion-purple: #8B5CF6;
+  --color-onion-blue: #0EA5E9;
+  --color-onion-gold: #FACC15;
+  --color-onion-bg: #F0FBFF;
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
 }
 
-@layer base {
-  body {
-    background-color: var(--color-primary);
-    background-image: radial-gradient(circle at 20% 20%, var(--color-primary-light) 0%, var(--color-primary) 100%);
-    background-attachment: fixed;
-    font-family: 'PingFang SC', 'Microsoft YaHei', sans-serif;
-  }
+body {
+  @apply bg-onion-bg text-gray-800 antialiased;
+  -webkit-tap-highlight-color: transparent;
 }
 
-@layer components {
-  .brutal-card {
-    background-color: white;
-    border-width: 3px;
-    border-color: var(--color-ink);
-    border-radius: 24px;
-    padding: 1.5rem;
-    box-shadow: 0 8px 0 rgba(0,0,0,0.1);
-  }
+/* Premium Card Style */
+.mission-card {
+  @apply bg-white rounded-[2rem] p-4 shadow-[0_8px_40px_rgb(14,165,233,0.08)] border border-white relative overflow-hidden;
+}
 
-  .brutal-btn {
-    background-color: var(--color-primary);
-    color: white;
-    border-width: 3px;
-    border-color: var(--color-ink);
-    border-radius: 1rem;
-    font-weight: 900;
-    box-shadow: 0 4px 0 var(--color-ink);
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-  }
+.mission-header {
+  @apply flex items-center gap-2 mb-2.5;
+}
+.mission-header-line {
+  @apply w-1.5 h-4 bg-gradient-to-b from-onion-blue to-onion-purple rounded-full;
+}
 
-  .brutal-btn:active {
-    transform: translateY(2px);
-    box-shadow: 0 2px 0 var(--color-ink);
-  }
+/* Progress System */
+.progress-container {
+  @apply h-2.5 bg-sky-50 rounded-full overflow-hidden relative;
+}
+.progress-fill {
+  @apply h-full bg-gradient-to-r from-onion-blue to-onion-purple transition-all duration-1000 ease-out relative;
+}
 
-  .input-brutal {
-    width: 100%;
-    background-color: white;
-    border-width: 2px;
-    border-color: var(--color-ink);
-    border-radius: 0.75rem;
-    padding-left: 1rem;
-    padding-right: 1rem;
-    padding-top: 0.75rem;
-    padding-bottom: 0.75rem;
-    color: var(--color-ink);
-    transition-property: all;
-    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
-    transition-duration: 150ms;
-    font-weight: 700;
-  }
+/* Form Styles */
+.input-base {
+  @apply w-full h-11 bg-gray-50 border-2 border-gray-100 rounded-xl px-4 text-sm font-bold focus:border-onion-purple focus:bg-white outline-none transition-all placeholder:text-gray-300;
+}
 
-  .input-brutal:focus {
-    outline: 2px solid transparent;
-    outline-offset: 2px;
-    border-color: var(--color-primary);
-  }
+/* Catalyst Card */
+.catalyst-card {
+  @apply rounded-[1.5rem] p-5 text-white shadow-xl shadow-purple-500/10 transition-all duration-300;
+}
+
+@keyframes bounce-subtle {
+  0%, 100% { transform: translateY(-5%); }
+  50% { transform: translateY(5%); }
+}
+.animate-bounce-subtle {
+  animation: bounce-subtle 2s infinite ease-in-out;
+}
+
+::-webkit-scrollbar {
+  display: none;
+}
+
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+.shimmer-effect::after {
+  content: "";
+  @apply absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent;
+  animation: shimmer 2s infinite;
 }

@@ -1,0 +1,9 @@
+name = "onion-share"
+compatibility_date = "2024-04-01"
+pages_build_output_dir = "dist"
+
+[vars]
+# FEISHU_APP_ID = "..."
+# FEISHU_APP_SECRET = "..."
+# FEISHU_APP_TOKEN = "..."
+# FEISHU_TABLE_ID = "..."

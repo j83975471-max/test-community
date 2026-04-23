@@ -1,6 +1,6 @@
 {
-  "name": "洋葱高光创作官 - 专属激励任务",
-  "description": "K12教育产品社区高光用户端外分享激励任务页，支持双重倒计时、截图提交、进度追踪及飞书Webhook对接。",
+  "name": "洋葱高光分享官 · 专属福利任务",
+  "description": "专为洋葱社区创作者设计的阶段性任务奖励落地页，支持实时进度回传与审核状态展示。",
   "requestFramePermissions": [],
   "majorCapabilities": []
 }
